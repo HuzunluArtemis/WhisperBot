@@ -35,7 +35,7 @@ db = {}
 @bot.on(events.NewMessage(pattern="^[!?/]start$"))
 async def stsrt(event):
     await event.reply(
-            f"**Heya, I am a {BOT_NAME}!**\nType /help to see how to use me!\nType /repo to deploy your own bot like this.")
+            f"**Heya, I am a {BOT_NAME}!**\n\nType /help to see how to use me!\nType /repo to deploy your own bot like this.")
 
 
 @bot.on(events.NewMessage(pattern="^[!?/]help$"))
