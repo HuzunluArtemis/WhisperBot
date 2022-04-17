@@ -34,7 +34,7 @@
       },
       "BOT_USERNAME": {
          "description": "username of your bot with the @",
-         "value": "DionXRobot"
+         "value": "@DionXRobot"
       },
       "BOT_NAME": {
          "description": "name of your bot",
