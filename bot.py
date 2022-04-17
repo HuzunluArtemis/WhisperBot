@@ -41,7 +41,7 @@ async def stsrt(event):
 @bot.on(events.NewMessage(pattern="^[!?/]help$"))
 async def stsrt(event):
     await event.reply(
-            f"**• How to use me:**\n\nClick the button below or type __{BOT_USERNAME} wspr <username> | <text>__\nExample: `{BOT_USERNAME} wspr @Xflzu | Hello!`",
+            f"**• How to use {BOT_NAME}:**\n\nClick the button below or\n\nType __{BOT_USERNAME} wspr <username> | <text>__\nExample: `{BOT_USERNAME} wspr @Xflzu | Hello!`",
             buttons=[
                 [Button.switch_inline("Go Inline", query="wspr")]
                 ]
