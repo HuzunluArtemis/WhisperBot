@@ -35,15 +35,25 @@ db = {}
 @bot.on(events.NewMessage(pattern="^[!?/]start$"))
 async def stsrt(event):
     await event.reply(
-            f"**Heya, I am a {BOT_NAME}!**\nType /help to see how to use me!")
+            f"**Heya, I am a {BOT_NAME}!**\nType /help to see how to use me!\nType /repo to deploy your own bot like this.")
 
 
 @bot.on(events.NewMessage(pattern="^[!?/]help$"))
 async def stsrt(event):
     await event.reply(
-            f"**• How to use me:\n\nClick the button below or type **{BOT_USERNAME} wspr <username> | <text>**\nExample: `{BOT_USERNAME} wspr @Xflzu | Hello!`",
+            f"**• How to use me:**\n\nClick the button below or type __{BOT_USERNAME} wspr <username> | <text>__\nExample: `{BOT_USERNAME} wspr @Xflzu | Hello!`",
             buttons=[
-                [Button.switch_inline("Go Inline", query="")]
+                [Button.switch_inline("Go Inline", query="wspr")]
+                ]
+            )
+
+
+@bot.on(events.NewMessage(pattern="^[!?/]repo$"))
+async def stsrt(event):
+    await event.reply(
+            f"Click the button below to deploy bot like {BOT_NAME}",
+            buttons=[
+                [Button.url("Click Here", "https://telegram.dog/XTZ_HerokuBot?start=U2VvcmFuZ0Rpb24vV2hpc3BlckJvdCBkaW9u")]
                 ]
             )
 
