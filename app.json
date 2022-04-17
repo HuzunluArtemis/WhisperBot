@@ -1,44 +1,45 @@
 {
-	"name": "Dion Whisper-Bot",
-	"description": "A TelegramBot to send messages secretly, by github.com/SeorangDion",
-	"logo": "https://telegra.ph/file/5854f7aacd6dd0a974717.jpg",
-	"keywords": [
-		"telegram",
-		"bot",
-		"python",
-		"telethon"
-                "dion"
-	],
-	"repository": "https://github.com/SeorangDion/WhisperBot",
-	"env": {
-		"TOKEN": {
-			"description": "Your Telegram Bot Token ( @BotFather )",
-			"value": ""
-		},
-               {
-		"API_ID": {
-			"description": "Get Api ID from my.telegram.org or @ScrapDionRobot",
-			"value": ""
-		},
-               {
-		"API_HASH": {
-			"description": "Get Api ID from my.telegram.org or @ScrapDionRobot",
-			"value": ""
-		},
-               {
-		"BOT_NAME": {
-			"description": "Your telegram bot name. Example: Dion Bot",
-			"value": ""
-		},
-               {
-		"BOT_USERNAME": {
-			"description": "Your Telegram bot username. Example: @DionXRobot",
-			"value": ""
-		}
-	},
-	"buildpacks": [
-		{
-			"url": "heroku/python"
-		}
-	]
+      "name": "Dion WhisperBot",
+      "description": "A TelegramBot to send messages secretly, by github.com/SeorangDion",
+      "keywords": [
+         "telegram",
+         "advance",
+         "group",
+         "manager",
+         "SeorangDion"
+      ],
+    
+   "logo":    "https://telegra.ph/file/5854f7aacd6dd0a974717.jpg",  
+   "repository": "https://github.com/SeorangDion/WhisperBot",
+   "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+   "env": {
+      "TOKEN": {
+         "description": "Your bot token. Get one from @BotFather duh",
+         "required": true,
+         "value": ""
+      },
+      "API_ID": {
+         "description": "Get API_ID from my.telegram.org or @ScrapDionRobot, used for telethon based modules.",
+         "required": true,
+         "value": ""
+      },
+      "API_HASH": {
+         "description": "Get API_HASH from my.telegram.org or @ScrapDionRobot, used for telethon based modules.",
+         "required": true,
+         "value": ""
+      },
+      "BOT_USERNAME": {
+         "description": "username of your bot with the @",
+         "value": "DionXRobot"
+      },
+      "BOT_NAME": {
+         "description": "name of your bot",
+         "value": "Dion Bot"
+      }
+      
+   }
 }
