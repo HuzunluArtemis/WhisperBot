@@ -1,0 +1,44 @@
+{
+	"name": "Dion Whisper-Bot",
+	"description": "A TelegramBot to send messages secretly, by github.com/SeorangDion",
+	"logo": "https://telegra.ph/file/5854f7aacd6dd0a974717.jpg",
+	"keywords": [
+		"telegram",
+		"bot",
+		"python",
+		"telethon"
+                "dion"
+	],
+	"repository": "https://github.com/SeorangDion/WhisperBot",
+	"env": {
+		"TOKEN": {
+			"description": "Your Telegram Bot Token ( @BotFather )",
+			"value": ""
+		},
+               {
+		"API_ID": {
+			"description": "Get Api ID from my.telegram.org or @ScrapDionRobot",
+			"value": ""
+		},
+               {
+		"API_HASH": {
+			"description": "Get Api ID from my.telegram.org or @ScrapDionRobot",
+			"value": ""
+		},
+               {
+		"BOT_NAME": {
+			"description": "Your telegram bot name. Example: Dion Bot",
+			"value": ""
+		},
+               {
+		"BOT_USERNAME": {
+			"description": "Your Telegram bot username. Example: @DionXRobot",
+			"value": ""
+		}
+	},
+	"buildpacks": [
+		{
+			"url": "heroku/python"
+		}
+	]
+}
