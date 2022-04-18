@@ -11,11 +11,6 @@
     
    "logo":    "https://telegra.ph/file/5854f7aacd6dd0a974717.jpg",  
    "repository": "https://github.com/SeorangDion/WhisperBot",
-   "buildpacks": [
-    {
-      "url": "heroku/python"
-    }
-  ],
    "env": {
       "TOKEN": {
          "description": "Your bot token. Get one from @BotFather duh",
@@ -33,13 +28,23 @@
          "value": ""
       },
       "BOT_USERNAME": {
-         "description": "username of your bot with the @",
+         "description": "Username of your bot with the @",
          "value": "@DionXRobot"
       },
       "BOT_NAME": {
-         "description": "name of your bot",
+         "description": "Name of your bot",
          "value": "Dion Bot"
       }
-      
-   }
+    },
+    "buildpacks": [
+     {
+      "url": "heroku/python"
+     }
+    ],
+    "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
 }
