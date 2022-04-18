@@ -35,7 +35,7 @@ db = {}
 @bot.on(events.NewMessage(pattern="^[!?/]start$"))
 async def stsrt(event):
     await event.reply(
-            f"**Heya, I am a {BOT_NAME}!**\n\nType /help to see how to use me!\nType /repo to deploy your own bot like this.")
+            f"**Heya, I am a {BOT_NAME}!**\n\nType /help to see how to use me!\nType /repo to deploy your own bot like {BOT_NAME}.")
 
 
 @bot.on(events.NewMessage(pattern="^[!?/]help$"))
@@ -128,5 +128,5 @@ async def ws(event):
         return
     await event.answer(msg, alert=True)
 
-print("Started Bot, by github.com/SeorangDion.")
+print("Started Bot, by @SeorangDion.")
 bot.run_until_disconnected()
