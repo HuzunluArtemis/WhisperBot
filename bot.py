@@ -93,14 +93,13 @@ async def inline(event):
         return
     db.update({"user_id": ui.user.id, "msg": msg, "self": event.sender.id})
     text = f"""
-A Whisper Has Been Sent
-To [{ui.user.first_name}](tg://user?id={ui.user.id})!
+A Whisper Has Been Sent To [{ui.user.first_name}](tg://user?id={ui.user.id})!
 Click The Below Button To See The Message!\n
 **Note:** __Only {ui.user.first_name} can open this!__
     """
     dn = event.builder.article(
-            title="Its a secret message!",
-            description="It's a secret message!",
+            title="Send your secret message!",
+            description=f"Powered by {BOT_NAME}",
             text=text,
             buttons=[
                 [Button.inline(" Show Message! ", data="wspr")]
@@ -119,7 +118,7 @@ async def ws(event):
     lol = [int(db["self"])]
     lol.append(user)
     if event.sender.id not in lol:
-        await event.answer("🔐 This message is not for you!", alert=True)
+        await event.answer("🔐 This message is not for you ningga!", alert=True)
         return
     msg = db["msg"]
     if msg == []:
