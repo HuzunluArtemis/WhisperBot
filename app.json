@@ -4,8 +4,8 @@
       "keywords": [
          "telegram",
          "advance",
-         "group",
-         "manager",
+         "whisper",
+         "bot",
          "SeorangDion"
       ],
     
@@ -18,12 +18,12 @@
          "value": ""
       },
       "BOT_USERNAME": {
-         "description": "Username of your bot with the @",
-         "value": "@DionXRobot"
+         "description": "Username of your bot with the @, example: `@WhisperXRobot`.",
+         "value": "@WhisperXRobot"
       },
       "BOT_NAME": {
-         "description": "Name of your bot",
-         "value": "Dion Bot"
+         "description": "Name of your bot, example: `Whisper Bot`",
+         "value": "Whisper Bot"
       }
     },
     "buildpacks": [
