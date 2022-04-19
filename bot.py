@@ -23,7 +23,7 @@ TOKEN = os.environ.get("TOKEN", None)
 
 bot = TelegramClient(
         "Dion",
-        api_id=6,
+        api_id=14624642,
         api_hash="23c93aa64d16911f521bd0b16291af57"
         ).start(
                 bot_token=TOKEN
