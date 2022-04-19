@@ -3,4 +3,4 @@
 # t.me/DionProjects & t.me/DionSupport
 # Don't remove this credits!
 
-bot: python -m bot
+bot: bash dion
