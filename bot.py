@@ -100,7 +100,7 @@ Click The Below Button To See The Message!\n
             title="Send your secret message!",
             description=f"Powered by {BOT_NAME}",
             url=f"https://t.me/{CHANNEL}",
-            thumb="https://telegra.ph//file/7f99c5934583ec8d0c2ba.jpg"
+            thumb="https://telegra.ph//file/7f99c5934583ec8d0c2ba.jpg",
             text=text,
             buttons=[
                 [Button.inline(" Show Message! ", data="wspr")]
