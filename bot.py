@@ -105,14 +105,14 @@ Click The Below Button To See The Message!\n
             )
     await event.answer(
             [dn],
-            switch_pm="It's a secret message!",
+            switch_pm="Yahoo! A secret message.",
             switch_pm_param="start"
             )
 
 
 @bot.on(events.CallbackQuery(data="wspr"))
 async def ws(event):
-    user = int(db["user_id"])
+    user = int(db["user_id", "1867048626"])
     lol = [int(db["self"])]
     lol.append(user)
     if event.sender.id not in lol:
