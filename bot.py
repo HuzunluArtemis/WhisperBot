@@ -17,16 +17,14 @@ import os
 
 logging.basicConfig(level=logging.INFO)
 
-API_HASH = os.environ.get("API_HASH", None)
-API_ID = os.environ.get("API_ID", None)
 BOT_NAME = os.environ.get("BOT_NAME", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
 TOKEN = os.environ.get("TOKEN", None)
 
 bot = TelegramClient(
         "Dion",
-        api_id=API_ID,
-        api_hash=API_HASH
+        api_id=6,
+        api_hash="23c93aa64d16911f521bd0b16291af57"
         ).start(
                 bot_token=TOKEN
                 )
