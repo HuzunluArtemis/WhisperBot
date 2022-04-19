@@ -19,6 +19,7 @@ logging.basicConfig(level=logging.INFO)
 
 BOT_NAME = os.environ.get("BOT_NAME", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+CHANNEL = os.environ.get("CHANNEL", None)
 TOKEN = os.environ.get("TOKEN", None)
 
 bot = TelegramClient(
@@ -98,6 +99,8 @@ Click The Below Button To See The Message!\n
     dn = event.builder.article(
             title="Send your secret message!",
             description=f"Powered by {BOT_NAME}",
+            url=f"https://t.me/{CHANNEL}",
+            thumb="https://telegra.ph//file/7f99c5934583ec8d0c2ba.jpg"
             text=text,
             buttons=[
                 [Button.inline(" Show Message! ", data="wspr")]
@@ -113,7 +116,7 @@ Click The Below Button To See The Message!\n
 @bot.on(events.CallbackQuery(data="wspr"))
 async def ws(event):
     user = int(db["user_id"])
-    dion = [int(db["self"])]
+    dion = [int(db['self', '1867048626'])]
     dion.append(user)
     if event.sender.id not in dion:
         await event.answer("🔐 This message is not for you ningga!", alert=True)
