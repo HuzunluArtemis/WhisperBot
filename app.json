@@ -17,16 +17,6 @@
          "required": true,
          "value": ""
       },
-      "API_ID": {
-         "description": "Get API_ID from my.telegram.org or @ScrapDionRobot, used for telethon based modules.",
-         "required": true,
-         "value": ""
-      },
-      "API_HASH": {
-         "description": "Get API_HASH from my.telegram.org or @ScrapDionRobot, used for telethon based modules.",
-         "required": true,
-         "value": ""
-      },
       "BOT_USERNAME": {
          "description": "Username of your bot with the @",
          "value": "@DionXRobot"
