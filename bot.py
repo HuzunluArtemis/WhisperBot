@@ -17,29 +17,29 @@ import os
 
 logging.basicConfig(level=logging.INFO)
 
-BOT_NAME = os.environ.get("BOT_NAME", None)
-BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
-TOKEN = os.environ.get("TOKEN", None)
+DIONBOT_NAME = os.environ.get("BOT_NAME", None) # Your bot name, example: Dion Bot
+BOT_USERNAME = os.environ.get("BOT_USERNAME", None) # Your bot username with (@), example: @WhisperXRobot
+DION_TOKEN = os.environ.get("TOKEN", None) # Your token bot, get one from t.me/botfather
 
 bot = TelegramClient(
         "Dion",
         api_id=14624642,
         api_hash="23c93aa64d16911f521bd0b16291af57"
         ).start(
-                bot_token=TOKEN
+                bot_token=DION_TOKEN
                 )
 db = {}
 
 @bot.on(events.NewMessage(pattern="^[!?/]start$"))
 async def stsrt(event):
     await event.reply(
-            f"**Heya, I am a {BOT_NAME}!**\n\nType /help to see how to use me!\nType /repo to deploy your own bot like {BOT_NAME}.")
+            f"**Heya, I am a {DIONBOT_NAME}!**\n\nType /help to see how to use me!\nType /repo to deploy your own bot like {DIONBOT_NAME}.")
 
 
 @bot.on(events.NewMessage(pattern="^[!?/]help$"))
 async def helep(event):
     await event.reply(
-            f"**• How to use {BOT_NAME}:**\n\nClick the button below or\n\nType __{BOT_USERNAME} wspr <username> | <text>__\nExample: `{BOT_USERNAME} wspr @Xflzu | Hello!`",
+            f"**• How to use {DIONBOT_NAME}:**\n\nClick the button below or\n\nType __{BOT_USERNAME} wspr <username> | <text>__\nExample: `{BOT_USERNAME} wspr @Xflzu | Hello!`",
             buttons=[
                 [Button.switch_inline("Go Inline", query="wspr")]
                 ]
@@ -49,7 +49,7 @@ async def helep(event):
 @bot.on(events.NewMessage(pattern="^[!?/]repo$"))
 async def repos(event):
     await event.reply(
-            f"Click the button below to deploy bot like {BOT_NAME}",
+            f"Click the button below to deploy bot like {DIONBOT_NAME}",
             buttons=[
                 [Button.url("Click Here", "https://telegram.dog/XTZ_HerokuBot?start=U2VvcmFuZ0Rpb24vV2hpc3BlckJvdCBkaW9u")]
                 ]
@@ -89,7 +89,7 @@ async def inline(event):
                 switch_pm_param="start"
                 )
         return
-    db.update({"user_id": ui.user.id, "msg": msg, "self": event.sender.id})
+    db.update({"user_id": ui.user.id, "msg": msg, "deon": event.sender.id})
     text = f"""
 A Whisper Has Been Sent To [{ui.user.first_name}](tg://user?id={ui.user.id})!
 Click The Below Button To See The Message!\n
@@ -97,8 +97,7 @@ Click The Below Button To See The Message!\n
     """
     dn = event.builder.article(
             title="Send your secret message!",
-            description=f"Powered by {BOT_NAME}",
-            url=f"https://t.me/DionProjects",
+            description=f"Powered by {DIONBOT_NAME}",
             text=text,
             buttons=[
                 [Button.inline(" Show Message! ", data="wspr")]
@@ -114,7 +113,7 @@ Click The Below Button To See The Message!\n
 @bot.on(events.CallbackQuery(data="wspr"))
 async def ws(event):
     user = int(db["user_id"])
-    dion = [int(db['self', '1867048626'])]
+    dion = [int(db["deon"])]
     dion.append(user)
     if event.sender.id not in dion:
         await event.answer("🔐 This message is not for you ningga!", alert=True)
@@ -126,7 +125,7 @@ async def ws(event):
         return
     await event.answer(msg, alert=True)
 
-dion_txt = 'WhisperBot started! Developed and Maintaned by Dion\n'
+dion_txt = f'{DIONBOT_NAME} started! Developed and Maintaned by Dion\n'
 dion_txt += 'https://github.com/SeorangDion | https://t.me/Xflzu\n'
 dion_txt += 'Any questions? Say it at https://t.me/DionSupport\n'
 print(dion_txt)
