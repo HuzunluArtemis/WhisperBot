@@ -37,7 +37,7 @@ async def stsrt(event):
 
 
 @bot.on(events.NewMessage(pattern="^[!?/]help$"))
-async def stsrt(event):
+async def helep(event):
     await event.reply(
             f"**• How to use {BOT_NAME}:**\n\nClick the button below or\n\nType __{BOT_USERNAME} wspr <username> | <text>__\nExample: `{BOT_USERNAME} wspr @Xflzu | Hello!`",
             buttons=[
@@ -47,7 +47,7 @@ async def stsrt(event):
 
 
 @bot.on(events.NewMessage(pattern="^[!?/]repo$"))
-async def stsrt(event):
+async def repos(event):
     await event.reply(
             f"Click the button below to deploy bot like {BOT_NAME}",
             buttons=[
@@ -112,10 +112,10 @@ Click The Below Button To See The Message!\n
 
 @bot.on(events.CallbackQuery(data="wspr"))
 async def ws(event):
-    user = int(db["user_id", "1867048626"])
-    lol = [int(db["self"])]
-    lol.append(user)
-    if event.sender.id not in lol:
+    user = int(db["user_id"])
+    dion = [int(db["self"])]
+    dion.append(user)
+    if event.sender.id not in dion:
         await event.answer("🔐 This message is not for you ningga!", alert=True)
         return
     msg = db["msg"]
@@ -125,5 +125,8 @@ async def ws(event):
         return
     await event.answer(msg, alert=True)
 
-print("Started Bot, by @SeorangDion.")
+dion_txt = 'WhisperBot started! Developed and Maintaned by Dion\n'
+dion_txt += 'https://github.com/SeorangDion | https://t.me/Xflzu\n'
+dion_txt += 'Any questions? Say it at https://t.me/DionSupport\n'
+print(dion_txt)
 bot.run_until_disconnected()
