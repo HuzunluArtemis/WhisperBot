@@ -100,6 +100,7 @@ Click The Below Button To See The Message!\n
     dn = event.builder.article(
             title="Send your secret message!",
             description=f"Powered by {DIONBOT_NAME}",
+            url="https://t.me/DionProjects",
             text=dion_text,
             buttons=[
                 [Button.inline(" Show Message 🔓 ", data="wspr")]
