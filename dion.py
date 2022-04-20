@@ -8,11 +8,10 @@
 # t.me/DionProjects & t.me/DionSupport
 # Don't remove this credits!
 
-import os
 import logging
 
-from telethon import TelegramClient as deon
-from telethon import events, Button
+from telethon import events
+from telethon import TelegramClient, Button
 from telethon.tl.functions.users import GetFullUserRequest as us
 from dion_config import *
 
@@ -20,7 +19,7 @@ from dion_config import *
 logging.basicConfig(level=logging.INFO)
 
 
-dion = deon(
+dion = TelegramClient(
         "whisper",
         api_id=DIONAPI_KEY,
         api_hash=DIONAPI_HASH
@@ -94,7 +93,7 @@ A Whisper Has Been Sent To [{ui.user.first_name}](tg://user?id={ui.user.id})!
 Click The Below Button To See The Message!\n
 **Note:** __Only {ui.user.first_name} can open this!__
     """
-    dn = event.builder.article(
+    deon = event.builder.article(
             title="Send your secret message!",
             description=f"Powered by {DIONBOT_NAME}",
             url="https://t.me/DionProjects",
@@ -104,7 +103,7 @@ Click The Below Button To See The Message!\n
                 ]
             )
     await event.answer(
-            [dn],
+            [deon],
             switch_pm="Yahoo! A secret message.",
             switch_pm_param="start"
             )
