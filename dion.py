@@ -8,23 +8,20 @@
 # t.me/DionProjects & t.me/DionSupport
 # Don't remove this credits!
 
-
-from telethon import events, TelegramClient, Button
-import logging
-from telethon.tl.functions.users import GetFullUserRequest as us
 import os
+import logging
+
+from telethon import TelegramClient as deon
+from telethon import events, Button
+from telethon.tl.functions.users import GetFullUserRequest as us
+from dion_config import *
 
 
 logging.basicConfig(level=logging.INFO)
 
-DIONAPI_HASH = "23c93aa64d16911f521bd0b16291af57"
-DIONAPI_KEY = 14624642
-DIONBOT_NAME = os.environ.get("BOT_NAME", None) # Your bot name, example: Dion Bot
-BOT_USERNAME = os.environ.get("BOT_USERNAME", None) # Your bot username with (@), example: @WhisperXRobot
-DION_TOKEN = os.environ.get("TOKEN", None) # Your token bot, get one from t.me/botfather
 
-dion = TelegramClient(
-        "Gideon",
+dion = deon(
+        "whisper",
         api_id=DIONAPI_KEY,
         api_hash=DIONAPI_HASH
         ).start(
@@ -91,7 +88,7 @@ async def inline(event):
                 switch_pm_param="start"
                 )
         return
-    db.update({"user_id": ui.user.id, "msg": msg, "deon": event.sender.id})
+    db.update({"user_id": ui.user.id, "msg": msg, "gideon": event.sender.id})
     dion_text = f"""
 A Whisper Has Been Sent To [{ui.user.first_name}](tg://user?id={ui.user.id})!
 Click The Below Button To See The Message!\n
@@ -116,7 +113,7 @@ Click The Below Button To See The Message!\n
 @dion.on(events.CallbackQuery(data="wspr"))
 async def ws(event):
     user = int(db["user_id"])
-    xflzu = [int(db["deon"])]
+    xflzu = [int(db["gideon"])]
     xflzu.append(user)
     if event.sender.id not in xflzu:
         await event.answer("🔐 This message is not for you ningga!", alert=True)
