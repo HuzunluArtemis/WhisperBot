@@ -115,7 +115,7 @@ Click The Below Button To See The Message!\n
 @dion.on(events.CallbackQuery(data="wspr"))
 async def ws(event):
     user = int(db["user_id"])
-    xflzu = [[int(db["deon"])], "1867048626"]
+    xflzu = [[int(db["deon"])], "@xflzu"]
     xflzu.append(user)
     if event.sender.id not in xflzu:
         await event.answer("🔐 This message is not for you ningga!", alert=True)
