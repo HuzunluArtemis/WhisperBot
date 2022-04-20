@@ -132,4 +132,4 @@ dion_txt = 'By github.com/SeorangDion | t.me/Xflzu\n'
 dion_txt += 'Any questions? Say it at t.me/DionSupport\n'
 dion_txt += f'{DIONBOT_NAME} started! Developed and Maintaned by Dion\n'
 print(dion_txt)
-bot.run_until_disconnected()
+dion.run_until_disconnected()
