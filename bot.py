@@ -62,11 +62,11 @@ async def repos(event):
 async def die(event):
     if len(event.text) != 0:
         return
-    me = (await bot.get_me()).username
+    me = (await dion.get_me()).username
     
 @dion.on(events.InlineQuery(pattern="wspr"))
 async def inline(event):
-    me = (await bot.get_me()).username
+    me = (await dion.get_me()).username
     try:
         inp = event.text.split(None, 1)[1]
         user, msg = inp.split("|")
@@ -83,7 +83,7 @@ async def inline(event):
                 switch_pm_param="start"
                 )
     try:
-        ui = await bot(us(user))
+        ui = await dion(us(user))
     except BaseException:
         await event.answer(
                 [],
