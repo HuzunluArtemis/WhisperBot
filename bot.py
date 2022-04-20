@@ -3,7 +3,7 @@
 # Licensed under the GNU GENERAL PUBLIC LICENCE, Version 3 (the "License");
 # you may not use this file except in compliance with the License.
 #
-# Copyright (C) 2022 @SeorangDion for WhisperBot repo
+# Copyright (C) 2022 github.com/SeorangDion for WhisperBot repo
 # FROM WhisperBot <https://github.com/SeorangDion/WhisperBot>
 # t.me/DionProjects & t.me/DionSupport
 # Don't remove this credits!
@@ -17,26 +17,28 @@ import os
 
 logging.basicConfig(level=logging.INFO)
 
+DIONAPI_HASH = "23c93aa64d16911f521bd0b16291af57"
+DIONAPI_KEY = 14624642
 DIONBOT_NAME = os.environ.get("BOT_NAME", None) # Your bot name, example: Dion Bot
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None) # Your bot username with (@), example: @WhisperXRobot
 DION_TOKEN = os.environ.get("TOKEN", None) # Your token bot, get one from t.me/botfather
 
-bot = TelegramClient(
-        "Dion",
-        api_id=14624642,
-        api_hash="23c93aa64d16911f521bd0b16291af57"
+dion = TelegramClient(
+        "Gideon",
+        api_id=DIONAPI_KEY,
+        api_hash=DIONAPI_HASH
         ).start(
                 bot_token=DION_TOKEN
                 )
 db = {}
 
-@bot.on(events.NewMessage(pattern="^[!?/]start$"))
+@dion.on(events.NewMessage(pattern="^[!?/]start$"))
 async def stsrt(event):
     await event.reply(
             f"**Heya, I am a {DIONBOT_NAME}!**\n\nType /help to see how to use me!\nType /repo to deploy your own bot like {DIONBOT_NAME}.")
 
 
-@bot.on(events.NewMessage(pattern="^[!?/]help$"))
+@dion.on(events.NewMessage(pattern="^[!?/]help$"))
 async def helep(event):
     await event.reply(
             f"**• How to use {DIONBOT_NAME}:**\n\nClick the button below or\n\nType __{BOT_USERNAME} wspr <username> | <text>__\nExample: `{BOT_USERNAME} wspr @Xflzu | Hello!`",
@@ -46,7 +48,7 @@ async def helep(event):
             )
 
 
-@bot.on(events.NewMessage(pattern="^[!?/]repo$"))
+@dion.on(events.NewMessage(pattern="^[!?/]repo$"))
 async def repos(event):
     await event.reply(
             f"Click the button below to deploy bot like {DIONBOT_NAME}",
@@ -56,13 +58,13 @@ async def repos(event):
             )
 
 
-@bot.on(events.InlineQuery())
+@dion.on(events.InlineQuery())
 async def die(event):
     if len(event.text) != 0:
         return
     me = (await bot.get_me()).username
     
-@bot.on(events.InlineQuery(pattern="wspr"))
+@dion.on(events.InlineQuery(pattern="wspr"))
 async def inline(event):
     me = (await bot.get_me()).username
     try:
@@ -90,7 +92,7 @@ async def inline(event):
                 )
         return
     db.update({"user_id": ui.user.id, "msg": msg, "deon": event.sender.id})
-    text = f"""
+    dion_text = f"""
 A Whisper Has Been Sent To [{ui.user.first_name}](tg://user?id={ui.user.id})!
 Click The Below Button To See The Message!\n
 **Note:** __Only {ui.user.first_name} can open this!__
@@ -98,9 +100,9 @@ Click The Below Button To See The Message!\n
     dn = event.builder.article(
             title="Send your secret message!",
             description=f"Powered by {DIONBOT_NAME}",
-            text=text,
+            text=dion_text,
             buttons=[
-                [Button.inline(" Show Message! ", data="wspr")]
+                [Button.inline(" Show Message 🔓 ", data="wspr")]
                 ]
             )
     await event.answer(
@@ -110,12 +112,12 @@ Click The Below Button To See The Message!\n
             )
 
 
-@bot.on(events.CallbackQuery(data="wspr"))
+@dion.on(events.CallbackQuery(data="wspr"))
 async def ws(event):
     user = int(db["user_id"])
-    dion = [int(db["deon"])]
-    dion.append(user)
-    if event.sender.id not in dion:
+    xflzu = [int(db["deon"])]
+    xflzu.append(user)
+    if event.sender.id not in xflzu:
         await event.answer("🔐 This message is not for you ningga!", alert=True)
         return
     msg = db["msg"]
@@ -125,8 +127,9 @@ async def ws(event):
         return
     await event.answer(msg, alert=True)
 
-dion_txt = f'{DIONBOT_NAME} started! Developed and Maintaned by Dion\n'
-dion_txt += 'https://github.com/SeorangDion | https://t.me/Xflzu\n'
-dion_txt += 'Any questions? Say it at https://t.me/DionSupport\n'
+
+dion_txt = 'By github.com/SeorangDion | t.me/Xflzu\n'
+dion_txt += 'Any questions? Say it at t.me/DionSupport\n'
+dion_txt += f'{DIONBOT_NAME} started! Developed and Maintaned by Dion\n'
 print(dion_txt)
 bot.run_until_disconnected()
