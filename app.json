@@ -13,12 +13,12 @@
    "repository": "https://github.com/SeorangDion/WhisperBot",
    "env": {
       "TOKEN": {
-         "description": "Your bot token. Get one from @BotFather duh",
+         "description": "Your bot token, get one from @BotFather on Telegram.",
          "required": true,
          "value": ""
       },
       "BOT_USERNAME": {
-         "description": "Username of your bot with the @, example: `@WhisperXRobot`.",
+         "description": "Username of your bot with @, example: `@WhisperXRobot`.",
          "value": "@WhisperXRobot"
       },
       "BOT_NAME": {
