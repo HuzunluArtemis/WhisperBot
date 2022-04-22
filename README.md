@@ -1,4 +1,4 @@
-[![Whisper Bot](https://telegra.ph/file/5854f7aacd6dd0a974717.jpg)](https://t.me/DionProjects)
+[![Whisper Bot](https://telegra.ph/file/5854f7aacd6dd0a974717.jpg)](https://t.me/WhisperXRobot)
 
 <h1 align="center">Whisper Bot 🔒</h1>
 
