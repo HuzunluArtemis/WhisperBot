@@ -31,13 +31,13 @@ db = {}
 @dion.on(events.NewMessage(pattern="^[!?/]start$"))
 async def stsrt(event):
     await event.reply(
-            f"**Heya, I am a {DIONBOT_NAME}!**\n\nType /help to see how to use me!\nType /repo to deploy your own bot like {DIONBOT_NAME}.")
+            START_TEXT)
 
 
 @dion.on(events.NewMessage(pattern="^[!?/]help$"))
 async def helep(event):
     await event.reply(
-            f"**• How to use {DIONBOT_NAME}:**\n\nClick the button below or\n\nType __{BOT_USERNAME} wspr <username> | <text>__\nExample: `{BOT_USERNAME} wspr @Xflzu | Hello!`",
+            HELP_TEXT,
             buttons=[
                 [Button.switch_inline("Go Inline", query="wspr")]
                 ]
@@ -47,7 +47,7 @@ async def helep(event):
 @dion.on(events.NewMessage(pattern="^[!?/]repo$"))
 async def repos(event):
     await event.reply(
-            f"Click the button below to deploy bot like {DIONBOT_NAME}",
+            REPO_TEXT,
             buttons=[
                 [Button.url("Click Here", "https://telegram.dog/XTZ_HerokuBot?start=U2VvcmFuZ0Rpb24vV2hpc3BlckJvdCBkaW9u")]
                 ]
