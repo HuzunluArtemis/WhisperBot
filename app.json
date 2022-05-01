@@ -11,6 +11,14 @@
     
    "logo":    "https://telegra.ph/file/5854f7aacd6dd0a974717.jpg",  
    "repository": "https://github.com/SeorangDion/WhisperBot",
+   "addons": [
+          {
+         "options": {
+            "version": "12"
+         },
+         "plan": "heroku-postgresql"
+      }
+   ],
    "env": {
       "TOKEN": {
          "description": "Your bot token, get one from @BotFather on Telegram.",
